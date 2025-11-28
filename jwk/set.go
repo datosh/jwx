@@ -139,11 +139,10 @@ func (s *set) Clear() error {
 }
 
 func (s *set) Keys() []string {
-	ret := make([]string, len(s.privateParams))
-	var i int
-	for k := range s.privateParams {
-		ret[i] = k
-		i++
+	ret := make([]string, len(s.keys))
+	for _, key := range s.keys {
+		keyid, _ := key.KeyID()
+		ret = append(ret, keyid)
 	}
 	return ret
 }

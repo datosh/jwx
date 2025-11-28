@@ -279,8 +279,8 @@ func (s *set) LookupKeyID(kid string) (Key, bool) {
 		if !ok {
 			return nil, false
 		}
-		gotkid, ok := key.KeyID()
-		if ok && gotkid == kid {
+		gotkid, _ := key.KeyID()
+		if gotkid == kid {
 			return key, true
 		}
 	}
